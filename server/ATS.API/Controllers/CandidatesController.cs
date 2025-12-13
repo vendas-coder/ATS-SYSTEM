@@ -1,3 +1,4 @@
+using ATS.Application.DTOs.Candidates;
 using ATS.Application.Services;
 using ATS.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -23,9 +24,18 @@ public class CandidatesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Candidate candidate)
+public async Task<IActionResult> Create(CreateCandidateRequest request)
+{
+    var candidate = new Candidate
     {
-        await _service.CreateAsync(candidate);
-        return CreatedAtAction(nameof(GetAll), candidate);
-    }
+        FirstName = request.FirstName,
+        LastName = request.LastName,
+        Email = request.Email,
+        Phone = request.Phone
+    };
+
+    await _service.CreateAsync(candidate);
+    return Ok(candidate);
+}
+
 }
