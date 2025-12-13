@@ -1,0 +1,258 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Workers\\ATS.Workers.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Application\\ATS.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Application\\ATS.Application.csproj",
+        "projectName": "ATS.Application",
+        "projectPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Application\\ATS.Application.csproj",
+        "packagesPath": "C:\\Users\\Adivhaho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Adivhaho\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Domain\\ATS.Domain.csproj": {
+                "projectPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Domain\\ATS.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Domain\\ATS.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Domain\\ATS.Domain.csproj",
+        "projectName": "ATS.Domain",
+        "projectPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Domain\\ATS.Domain.csproj",
+        "packagesPath": "C:\\Users\\Adivhaho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Adivhaho\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Infrastructure\\ATS.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Infrastructure\\ATS.Infrastructure.csproj",
+        "projectName": "ATS.Infrastructure",
+        "projectPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Infrastructure\\ATS.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Adivhaho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Adivhaho\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Application\\ATS.Application.csproj": {
+                "projectPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Application\\ATS.Application.csproj"
+              },
+              "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Domain\\ATS.Domain.csproj": {
+                "projectPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Domain\\ATS.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Workers\\ATS.Workers.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Workers\\ATS.Workers.csproj",
+        "projectName": "ATS.Workers",
+        "projectPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Workers\\ATS.Workers.csproj",
+        "packagesPath": "C:\\Users\\Adivhaho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Workers\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Adivhaho\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Application\\ATS.Application.csproj": {
+                "projectPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Application\\ATS.Application.csproj"
+              },
+              "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Infrastructure\\ATS.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Adivhaho\\Desktop\\ATS-SYSTEM\\server\\ATS.Infrastructure\\ATS.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.416/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

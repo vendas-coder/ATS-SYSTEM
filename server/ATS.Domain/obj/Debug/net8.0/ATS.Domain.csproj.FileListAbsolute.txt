@@ -1,0 +1,11 @@
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Domain\bin\Debug\net8.0\ATS.Domain.deps.json
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.domain\bin\Debug\net8.0\ATS.Domain.dll
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.domain\bin\Debug\net8.0\ATS.Domain.pdb
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.domain\obj\Debug\net8.0\ATS.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.domain\obj\Debug\net8.0\ATS.Domain.AssemblyInfoInputs.cache
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.domain\obj\Debug\net8.0\ATS.Domain.AssemblyInfo.cs
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.domain\obj\Debug\net8.0\ATS.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.domain\obj\Debug\net8.0\ATS.Domain.dll
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.domain\obj\Debug\net8.0\refint\ATS.Domain.dll
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.domain\obj\Debug\net8.0\ATS.Domain.pdb
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Domain\obj\Debug\net8.0\ref\ATS.Domain.dll

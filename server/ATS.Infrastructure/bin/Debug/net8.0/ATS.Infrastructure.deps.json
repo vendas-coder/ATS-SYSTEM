@@ -1,0 +1,56 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ATS.Infrastructure/1.0.0": {
+        "dependencies": {
+          "ATS.Application": "1.0.0",
+          "ATS.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ATS.Infrastructure.dll": {}
+        }
+      },
+      "ATS.Application/1.0.0": {
+        "dependencies": {
+          "ATS.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ATS.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ATS.Domain/1.0.0": {
+        "runtime": {
+          "ATS.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ATS.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ATS.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ATS.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

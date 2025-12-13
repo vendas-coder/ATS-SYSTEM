@@ -1,0 +1,15 @@
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\bin\Debug\net8.0\ATS.Application.deps.json
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\bin\Debug\net8.0\ATS.Application.dll
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\bin\Debug\net8.0\ATS.Application.pdb
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\bin\Debug\net8.0\ATS.Domain.dll
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\bin\Debug\net8.0\ATS.Domain.pdb
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\obj\Debug\net8.0\ATS.Application.csproj.AssemblyReference.cache
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\obj\Debug\net8.0\ATS.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\obj\Debug\net8.0\ATS.Application.AssemblyInfoInputs.cache
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\obj\Debug\net8.0\ATS.Application.AssemblyInfo.cs
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\obj\Debug\net8.0\ATS.Application.csproj.CoreCompileInputs.cache
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\obj\Debug\net8.0\ATS.Appl.E2DB72B2.Up2Date
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\obj\Debug\net8.0\ATS.Application.dll
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\obj\Debug\net8.0\refint\ATS.Application.dll
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\obj\Debug\net8.0\ATS.Application.pdb
+C:\Users\Adivhaho\Desktop\ATS-SYSTEM\server\ATS.Application\obj\Debug\net8.0\ref\ATS.Application.dll
