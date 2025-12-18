@@ -1,12 +1,14 @@
 using ATS.Application.DTOs.Candidates;
 using ATS.Application.Services;
 using ATS.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ATS.API.Controllers;
 
 [ApiController]
 [Route("api/candidates")]
+[Authorize(Policy = "RecruiterOrAdmin")]
 public class CandidatesController : ControllerBase
 {
     private readonly CandidateService _service;

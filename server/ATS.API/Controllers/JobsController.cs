@@ -1,11 +1,13 @@
 using ATS.Application.Services;
 using ATS.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ATS.API.Controllers;
 
 [ApiController]
 [Route("api/jobs")]
+[Authorize(Policy = "RecruiterOrAdmin")]
 public class JobsController : ControllerBase
 {
     private readonly JobService _service;

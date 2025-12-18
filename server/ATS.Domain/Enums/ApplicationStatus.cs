@@ -2,10 +2,10 @@ namespace ATS.Domain.Enums;
 
 public enum ApplicationStatus
 {
-    Applied,
-    Screening,
-    Interview,
-    Offer,
-    Hired,
-    Rejected
+    Applied = 0,
+    Screening = 1,
+    Interview = 2,
+    Offer = 3,
+    Hired = 4,
+    Rejected = 5
 }
