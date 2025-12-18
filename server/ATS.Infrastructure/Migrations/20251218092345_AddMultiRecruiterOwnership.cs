@@ -5,39 +5,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ATS.Infrastructure.Migrations
 {
-    /// <inheritdoc />
     public partial class AddMultiRecruiterOwnership : Migration
     {
-        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_ApplicationNotes_Applications_JobApplicationId1",
-                table: "ApplicationNotes");
-
-            migrationBuilder.DropIndex(
-                name: "IX_ApplicationNotes_JobApplicationId1",
-                table: "ApplicationNotes");
-
-            migrationBuilder.DropColumn(
-                name: "RecruiterId",
-                table: "Applications");
-
-            migrationBuilder.DropColumn(
-                name: "JobApplicationId1",
-                table: "ApplicationNotes");
-
-            migrationBuilder.AddColumn<Guid>(
-                name: "NewRecruiterId",
-                table: "ApplicationEvents",
-                type: "uuid",
-                nullable: true);
-
-            migrationBuilder.AddColumn<Guid>(
-                name: "OldRecruiterId",
-                table: "ApplicationEvents",
-                type: "uuid",
-                nullable: true);
+            // Safely drop RecruiterId ONLY if it exists
+            migrationBuilder.Sql("""
+            DO $$
+            BEGIN
+                IF EXISTS (
+                    SELECT 1 FROM information_schema.columns
+                    WHERE table_name = 'Applications'
+                    AND column_name = 'RecruiterId'
+                ) THEN
+                    ALTER TABLE "Applications" DROP COLUMN "RecruiterId";
+                END IF;
+            END$$;
+            """);
 
             migrationBuilder.CreateTable(
                 name: "JobApplicationAssignments",
@@ -76,43 +60,16 @@ namespace ATS.Infrastructure.Migrations
                 column: "RecruiterId");
         }
 
-        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "JobApplicationAssignments");
-
-            migrationBuilder.DropColumn(
-                name: "NewRecruiterId",
-                table: "ApplicationEvents");
-
-            migrationBuilder.DropColumn(
-                name: "OldRecruiterId",
-                table: "ApplicationEvents");
 
             migrationBuilder.AddColumn<Guid>(
                 name: "RecruiterId",
                 table: "Applications",
                 type: "uuid",
                 nullable: true);
-
-            migrationBuilder.AddColumn<Guid>(
-                name: "JobApplicationId1",
-                table: "ApplicationNotes",
-                type: "uuid",
-                nullable: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ApplicationNotes_JobApplicationId1",
-                table: "ApplicationNotes",
-                column: "JobApplicationId1");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ApplicationNotes_Applications_JobApplicationId1",
-                table: "ApplicationNotes",
-                column: "JobApplicationId1",
-                principalTable: "Applications",
-                principalColumn: "Id");
         }
     }
 }

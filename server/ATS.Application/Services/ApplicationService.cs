@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Logging;
 using ATS.Application.DTOs.Applications;
 using ATS.Application.Interfaces;
 using ATS.Domain;
@@ -17,8 +18,17 @@ public class ApplicationService
     private readonly IJobApplicationAssignmentRepository _assignmentRepository;
     private readonly IEmailService _emailService;
     private readonly EmailOptions _emailOptions;
+    private readonly ILogger<ApplicationService> _logger;
 
-    public ApplicationService(IApplicationRepository repository, IApplicationAuditLogRepository auditRepository, IApplicationEventRepository eventRepository, IRecruiterRepository recruiterRepository, IJobApplicationAssignmentRepository assignmentRepository, IEmailService emailService, IOptions<EmailOptions> emailOptions)
+    public ApplicationService(
+        IApplicationRepository repository,
+        IApplicationAuditLogRepository auditRepository,
+        IApplicationEventRepository eventRepository,
+        IRecruiterRepository recruiterRepository,
+        IJobApplicationAssignmentRepository assignmentRepository,
+        IEmailService emailService,
+        IOptions<EmailOptions> emailOptions,
+        ILogger<ApplicationService> logger)
     {
         _repository = repository;
         _auditRepository = auditRepository;
@@ -27,6 +37,7 @@ public class ApplicationService
         _assignmentRepository = assignmentRepository;
         _emailService = emailService;
         _emailOptions = emailOptions.Value;
+        _logger = logger;
     }
 
     // =======================
@@ -60,15 +71,24 @@ public class ApplicationService
             AppliedAt = DateTime.UtcNow
         };
 
-        await _repository.AddAsync(application);
-
-        // Log event
-        await LogApplicationEventAsync(application.Id, null, null, null, null, "ApplicationCreated", "System");
-
-        // Send email notification (fire-and-forget)
-        if (_emailOptions.Enabled && ShouldSendEmailForStatus(ApplicationStatus.Applied))
+        try
         {
-            _ = Task.Run(() => _emailService.SendStatusChangeEmailAsync(application, ApplicationStatus.Applied));
+            await _repository.AddAsync(application);
+            _logger.LogInformation("Application created: {ApplicationId} for Candidate {CandidateId} and Job {JobId}", application.Id, candidateId, jobId);
+
+            // Log event
+            await LogApplicationEventAsync(application.Id, null, null, null, null, "ApplicationCreated", "System");
+
+            // Send email notification (fire-and-forget)
+            if (_emailOptions.Enabled && ShouldSendEmailForStatus(ApplicationStatus.Applied))
+            {
+                _ = Task.Run(() => _emailService.SendStatusChangeEmailAsync(application, ApplicationStatus.Applied));
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error creating application for Candidate {CandidateId} and Job {JobId}", candidateId, jobId);
+            throw;
         }
     }
 
@@ -80,36 +100,49 @@ public class ApplicationService
         var application = await _repository.GetByIdAsync(applicationId);
 
         if (application is null)
+        {
+            _logger.LogWarning("Attempted to update status for non-existent application {ApplicationId}", applicationId);
             throw new InvalidOperationException("Application not found");
+        }
 
         ApplicationStatusRules.ValidateTransition(application.Status, nextStatus);
 
         var oldStatus = application.Status;
         application.Status = nextStatus;
 
-        await _repository.UpdateAsync(application);
-
-        // Log audit
-        var auditLog = new ApplicationAuditLog
+        try
         {
-            Id = Guid.NewGuid(),
-            ApplicationId = applicationId,
-            Action = "Status Changed",
-            OldStatus = oldStatus,
-            NewStatus = nextStatus,
-            RecruiterId = recruiterId,
-            CreatedAt = DateTime.UtcNow
-        };
+            await _repository.UpdateAsync(application);
 
-        await _auditRepository.AddAsync(auditLog);
+            // Log audit
+            var auditLog = new ApplicationAuditLog
+            {
+                Id = Guid.NewGuid(),
+                ApplicationId = applicationId,
+                Action = "Status Changed",
+                OldStatus = oldStatus,
+                NewStatus = nextStatus,
+                RecruiterId = recruiterId,
+                CreatedAt = DateTime.UtcNow
+            };
 
-        // Log event
-        await LogApplicationEventAsync(applicationId, oldStatus, nextStatus, null, null, "StatusChanged", recruiterId);
+            await _auditRepository.AddAsync(auditLog);
 
-        // Send email notification (fire-and-forget)
-        if (_emailOptions.Enabled && ShouldSendEmailForStatus(nextStatus))
+            // Log event
+            await LogApplicationEventAsync(applicationId, oldStatus, nextStatus, null, null, "StatusChanged", recruiterId);
+
+            // Send email notification (fire-and-forget)
+            if (_emailOptions.Enabled && ShouldSendEmailForStatus(nextStatus))
+            {
+                _ = Task.Run(() => _emailService.SendStatusChangeEmailAsync(application, nextStatus));
+            }
+
+            _logger.LogInformation("Application {ApplicationId} status updated from {OldStatus} to {NewStatus} by recruiter {RecruiterId}", applicationId, oldStatus, nextStatus, recruiterId);
+        }
+        catch (Exception ex)
         {
-            _ = Task.Run(() => _emailService.SendStatusChangeEmailAsync(application, nextStatus));
+            _logger.LogError(ex, "Error updating status for application {ApplicationId}", applicationId);
+            throw;
         }
     }
 

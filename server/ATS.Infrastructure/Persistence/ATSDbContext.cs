@@ -34,6 +34,9 @@ public class ATSDbContext : DbContext
         // JobApplication
         modelBuilder.Entity<JobApplication>()
             .HasKey(a => a.Id);
+        modelBuilder.Entity<JobApplication>()
+            .Property(a => a.RowVersion)
+            .IsRowVersion();
 
         // ApplicationNote
         modelBuilder.Entity<ApplicationNote>()

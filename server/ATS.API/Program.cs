@@ -29,7 +29,18 @@ builder.Services.AddDbContext<ATSDbContext>(options =>
 // Application services
 builder.Services.AddScoped<CandidateService>();
 builder.Services.AddScoped<JobService>();
-builder.Services.AddScoped<ApplicationService>();
+builder.Services.AddScoped<ApplicationService>(provider =>
+    new ApplicationService(
+        provider.GetRequiredService<IApplicationRepository>(),
+        provider.GetRequiredService<IApplicationAuditLogRepository>(),
+        provider.GetRequiredService<IApplicationEventRepository>(),
+        provider.GetRequiredService<IRecruiterRepository>(),
+        provider.GetRequiredService<IJobApplicationAssignmentRepository>(),
+        provider.GetRequiredService<IEmailService>(),
+        provider.GetRequiredService<Microsoft.Extensions.Options.IOptions<EmailOptions>>(),
+        provider.GetRequiredService<ILogger<ApplicationService>>()
+    )
+);
 builder.Services.AddScoped<ApplicationNoteService>();
 builder.Services.AddScoped<AnalyticsService>();
 
@@ -73,8 +84,12 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod();
         });
 });
+
 var app = builder.Build();
 
+
+// Global exception handling
+app.UseMiddleware<ATS.API.Middleware.ExceptionMiddleware>();
 app.UseCors("AllowSwagger");
 
 app.UseAuthentication();

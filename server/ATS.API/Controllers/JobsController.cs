@@ -29,10 +29,19 @@ public class JobsController : ControllerBase
     {
         var job = await _service.GetByIdAsync(id);
         if (job == null)
-            return NotFound();
-
+        {
+            return NotFound(new ErrorResponse {
+                Message = "Job not found."
+            });
+        }
         return Ok(job);
     }
+// Consistent error response structure
+public class ErrorResponse
+{
+    public string Message { get; set; } = string.Empty;
+    public string? Details { get; set; }
+}
 
     [HttpPost]
     public async Task<IActionResult> Create(Job job)
